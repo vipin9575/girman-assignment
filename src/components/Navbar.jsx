@@ -90,6 +90,8 @@ const Navbar = () => {
                 activeButton === "contact" ? "text-blue-500 underline" : ""
               }`}
               onClick={() => handleClick("contact")}
+              target="_blank"
+              href="mailto:contact@girmantech.com"
             >
               Contact
             </Button>

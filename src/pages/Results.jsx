@@ -53,7 +53,7 @@ const Results = () => {
   };
 
   return (
-    <div className="p-8 flex flex-col items-center bg-gradient-to-b from-white via-blue-100 to-blue-200 min-h-screen">
+    <div className="p-8 flex flex-col items-center min-h-screen">
       <div className="flex items-center gap-4 justify-center mb-6 w-full max-w-4xl">
         <IoArrowBackCircleOutline
           className="h-8 w-8 cursor-pointer"
