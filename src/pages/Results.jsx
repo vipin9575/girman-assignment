@@ -45,38 +45,40 @@ const Results = () => {
   }, [searchTerm]);
 
   const handleOpenDialog = (user) => {
-    setSelectedUser(user); // Set the selected user details
+    setSelectedUser(user);
   };
 
   const handleCloseDialog = () => {
-    setSelectedUser(null); // Close the dialog by clearing the selected user
+    setSelectedUser(null);
   };
 
   return (
     <div className="p-8 flex flex-col items-center bg-gradient-to-b from-white via-blue-100 to-blue-200 min-h-screen">
-      <div className="flex items-center gap-4 justify-center mb-6">
+      <div className="flex items-center gap-4 justify-center mb-6 w-full max-w-4xl">
         <IoArrowBackCircleOutline
-          className="h-8 w-8"
+          className="h-8 w-8 cursor-pointer"
           onClick={() => navigate("/")}
         />
-        <h1 className="text-3xl font-semibold">Search Results</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold text-center">
+          Search Results
+        </h1>
       </div>
 
       {/* Card Grid */}
       <div
-        className={`grid grid-cols-1 gap-6 ${
+        className={`grid gap-6 w-full max-w-6xl ${
           filteredData.length === 2
-            ? "grid-cols-2"
+            ? "grid-cols-1 md:grid-cols-2"
             : filteredData.length >= 3
-            ? "md:grid-cols-2 lg:grid-cols-3"
-            : ""
+            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            : "grid-cols-1"
         }`}
       >
         {filteredData.length > 0 ? (
           filteredData.map((user, index) => (
             <Card
               key={index}
-              className="bg-white max-w-md shadow-lg rounded-lg p-4 w-[350px]"
+              className="bg-white max-w-md shadow-lg rounded-lg p-4 w-full sm:w-[350px] mx-auto"
             >
               <CardHeader>
                 <img
@@ -86,7 +88,7 @@ const Results = () => {
                 />
               </CardHeader>
               <CardContent>
-                <CardTitle className="text-3xl font-semibold">{`${user.first_name} ${user.last_name}`}</CardTitle>
+                <CardTitle className="text-lg sm  :text-3xl font-semibold">{`${user.first_name} ${user.last_name}`}</CardTitle>
                 <div className="flex items-center text-gray-600 text-sm space-x-2 mt-1">
                   <FaMapMarkerAlt className="h-4 w-4" />
                   <p>{user.city}</p>
@@ -109,8 +111,11 @@ const Results = () => {
             </Card>
           ))
         ) : (
-          <div>
-            <img src={notFound} alt="not found" />
+          <div className="flex flex-col items-center">
+            <img src={notFound} alt="not found" className="w-64 h-auto" />
+            <p className="text-gray-500 mt-4 text-center">
+              No results found for "{searchTerm}".
+            </p>
           </div>
         )}
       </div>

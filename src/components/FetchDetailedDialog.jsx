@@ -19,14 +19,16 @@ const FetchDetailedDialog = ({ user, onClose }) => {
       <DialogTrigger asChild>
         <Button>Fetch Details</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-w-md sm:max-w-lg lg:max-w-xl">
         <DialogHeader>
-          <DialogTitle>Fetched Details</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-lg sm:text-2xl font-bold">
+            Fetched Details
+          </DialogTitle>
+          <DialogDescription className="text-sm sm:text-base text-gray-600">
             Here are the details of following employee.
           </DialogDescription>
         </DialogHeader>
-        <div className="space-y-4 font-semibold text-xl">
+        <div className="space-y-4 font-medium text-sm sm:text-lg">
           <h3>
             Name : {user.first_name} {user.last_name}
           </h3>
@@ -37,7 +39,7 @@ const FetchDetailedDialog = ({ user, onClose }) => {
             <img
               src={profilePic}
               alt="Profile"
-              className="border p-2 border-slate-500"
+              className="border p-2 border-slate-500 rounded-md max-w-[200px] sm:max-w-[250px] h-auto"
             />
           </div>
         </div>

@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-b from-white via-blue-100 to-blue-200 h-screen">
       <div className="max-w-lg transform -translate-y-1/2">
-        <img src={company_logo_text} alt="logo-text" className="h-20 mb-4" />
+        <img src={company_logo_text} alt="logo-text" className="h-14 mb-4 sm:h-20" />
         <div className="w-full p-4 relative">
           <Input
             placeholder="Search"
